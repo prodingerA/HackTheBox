@@ -1,8 +1,9 @@
-import bs4 as bs
-import urllib.request
+import requests
+from bs4 import BeautifulSoup
 
-sauce = urllib.request.urlopen('http://docker.hackthebox.eu:31846/').read()
+website = requests.get('http://docker.hackthebox.eu:31846/')
 
-soup = bs.BeautifulSoup(sauce, 'lxml')
+cont = BeautifulSoup(page.content, 'html.parser')
+innerH = soup.find('h3').text
 
-print(soup)
+print(innerH)
